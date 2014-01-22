@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- getConnected 1 -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp" >
+
+    <TextView
+        android:id="@+id/footer"
+        style="@style/FooterTheme"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:paddingLeft="15dp"
+        android:paddingTop="3dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="0.99"
+            android:gravity="bottom"
+            android:weightSum="1.0" >
+
+            <Button
+                android:id="@+id/footer_button_back"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:background="@drawable/footer_buttons"
+                android:drawableLeft="@drawable/arrow_left"
+                android:drawablePadding="2dip"
+                android:paddingLeft="5dp"
+                android:text="@string/footer_button_back"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/footer_button_menu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="0.4"
+                android:background="@drawable/footer_buttons"
+                android:drawablePadding="5dip"
+                android:drawableRight="@drawable/arrow_up"
+                android:paddingRight="5dp"
+                android:text="@string/footer_button_menu_open"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/footer_button_ok"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:background="@drawable/ok_button"
+                android:drawablePadding="2dip"
+                android:drawableRight="@drawable/arrow_right"
+                android:paddingRight="5dp"
+                android:text="@string/footer_button_ok"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/blue"
+            android:gravity="bottom"
+            android:orientation="vertical" >
+
+            <!--
+            	BUTTONS GO HERE FOR COOWL MENU STUFF
+             -->
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
