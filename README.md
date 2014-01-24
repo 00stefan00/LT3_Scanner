@@ -1,4 +1,4 @@
 LT3_Scanner
 ===========
 
-Repo for scanning device
+Repo for scanning device.

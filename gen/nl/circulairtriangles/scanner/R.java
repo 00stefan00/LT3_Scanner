@@ -38,22 +38,26 @@ public final class R {
         public static final int smooth_top_edges=0x7f02000b;
     }
     public static final class id {
-        public static final int RelativeLayout1=0x7f090000;
-        public static final int action_settings=0x7f09000a;
-        public static final int footer=0x7f090001;
-        public static final int footer_button_back=0x7f090004;
-        public static final int footer_button_menu=0x7f090005;
-        public static final int footer_button_ok=0x7f090006;
-        public static final int header_button_home=0x7f090009;
-        public static final int header_text=0x7f090008;
-        public static final int linearLayout1=0x7f090002;
-        public static final int linearLayout2=0x7f090003;
-        public static final int linearLayout3=0x7f090007;
+        public static final int RelativeLayout1=0x7f090003;
+        public static final int action_settings=0x7f09000d;
+        public static final int footer=0x7f090004;
+        public static final int footer_button_back=0x7f090007;
+        public static final int footer_button_menu=0x7f090008;
+        public static final int footer_button_ok=0x7f090009;
+        public static final int header_button_home=0x7f09000c;
+        public static final int header_text=0x7f09000b;
+        public static final int linearLayout1=0x7f090005;
+        public static final int linearLayout2=0x7f090006;
+        public static final int linearLayout3=0x7f09000a;
+        public static final int loginButtonButton=0x7f090002;
+        public static final int loginPasswordEditText=0x7f090001;
+        public static final int loginUserNameEditText=0x7f090000;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int footer=0x7f030001;
-        public static final int header=0x7f030002;
+        public static final int activity_login=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int footer=0x7f030002;
+        public static final int header=0x7f030003;
     }
     public static final class menu {
         public static final int main=0x7f080000;
@@ -61,14 +65,23 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
-        public static final int footer_button_back=0x7f050004;
-        public static final int footer_button_menu_close=0x7f050006;
-        public static final int footer_button_menu_open=0x7f050005;
-        public static final int footer_button_ok=0x7f050007;
+        public static final int footer_button_back=0x7f05000b;
+        public static final int footer_button_menu_close=0x7f05000d;
+        public static final int footer_button_menu_open=0x7f05000c;
+        public static final int footer_button_ok=0x7f05000e;
         /**  Layout Strings 
          */
-        public static final int header_button_home=0x7f050003;
-        public static final int hello_world=0x7f050002;
+        public static final int header_button_home=0x7f05000a;
+        public static final int hello_world=0x7f050009;
+        public static final int login_button_text=0x7f050005;
+        public static final int login_empty_password=0x7f050007;
+        public static final int login_empty_userName=0x7f050006;
+        public static final int login_empty_userName_password=0x7f050008;
+        public static final int login_password_hint=0x7f050004;
+        /**  Login Strings 
+         */
+        public static final int login_userName_hint=0x7f050003;
+        public static final int ok=0x7f050002;
     }
     public static final class style {
         /** 
