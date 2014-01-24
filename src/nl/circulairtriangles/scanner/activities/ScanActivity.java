@@ -5,13 +5,13 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
-public class MainActivity extends BaseActivity {
+public class ScanActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		initLayout(R.string.title_activity_settings, true, false, true, false);
+		setContentView(R.layout.activity_scan);
+		initLayout(R.string.title_activity_scanner, true, false, true, false);
 	}
 
 	@Override

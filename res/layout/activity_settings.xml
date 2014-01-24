@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp" >
+
+    <include
+        android:id="@+id/include1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/header" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/include1"
+        android:layout_below="@+id/include1"
+        android:singleLine="true"
+        android:text="@string/language_picker" />
+
+    <RadioGroup
+        android:id="@+id/languagePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView" >
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/gass_textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/languagePicker"
+        android:layout_marginTop="36dp"
+        android:text="@string/font_scaling" />
+
+    <Spinner
+        android:id="@+id/font_scale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/gass_textView1" />
+
+    <EditText
+        android:id="@+id/change_pin1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:hint="@string/set_pin"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/change_pin2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/change_pin1"
+        android:layout_below="@+id/change_pin1"
+        android:ems="10"
+        android:hint="@string/confirm_pin"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+	<ToggleButton
+			android:id="@+id/toggleButton1"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
+			android:layout_centerHorizontal="true"
+			android:layout_marginBottom="50dp"
+			android:textOff="@string/temperature_perms"
+			android:textOn="@string/temperature_perms" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        layout="@layout/footer" />
+
+</RelativeLayout>

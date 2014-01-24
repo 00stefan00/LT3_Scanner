@@ -25,7 +25,15 @@
                 <activity
             android:name="nl.circulairtriangles.scanner.MainActivity"
             android:label="@string/app_name" >
-        </activity>
+        </activity>        
+        <activity
+            android:name=".activities.SettingsActivity"/>
+        <activity
+            android:name=".activities.BaseActivity"/>
+        <activity
+            android:name=".activities.LoginActivity"/>
+        <activity
+            android:name=".activities.ScanActivity"/>
     </application>
 
 </manifest>

@@ -87,9 +87,56 @@
             android:gravity="bottom"
             android:orientation="vertical" >
 
-            <!--
-            	BUTTONS GO HERE FOR COOWL MENU STUFF
-             -->
+            <Button
+                android:id="@+id/home2temp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/smooth_button"
+                android:drawablePadding="5dip"
+                android:drawableRight="@drawable/arrow_icon_20x20"
+                android:gravity="left|center_vertical|right"
+                android:onClick="startIntentByButton"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:tag="ScanActivity"
+                android:text="@string/app_name" />
+
+            <Button
+                android:id="@+id/home2usages"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/smooth_button"
+                android:drawablePadding="5dip"
+                android:drawableRight="@drawable/arrow_icon_20x20"
+                android:gravity="left|center_vertical|right"
+                android:onClick="startIntentByButton"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:tag="ScanActivity"
+                android:text="@string/app_name" />
+
+            <Button
+                android:id="@+id/home2settings"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/smooth_button"
+                android:drawablePadding="5dip"
+                android:drawableRight="@drawable/arrow_icon_20x20"
+                android:gravity="left|center_vertical|right"
+                android:onClick="startIntentByButton"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:tag="SettingsActivity"
+                android:text="@string/title_activity_settings" />
         </LinearLayout>
     </LinearLayout>
 

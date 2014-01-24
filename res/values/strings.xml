@@ -13,15 +13,42 @@
     <string name="login_empty_password">Password field is empty</string>
     <string name="login_empty_userName_password">Username and Password fields are empty</string>
     
-    
-    <string name="hello_world">Hello world!</string>
-    
     <!-- Layout Strings -->
+    <string name="error_something_wrong">Something went wrong</string>
     <string name="header_button_home">Home</string>
     <string name="footer_button_back">Back</string>
     <string name="footer_button_menu_open">Open Menu</string>
     <string name="footer_button_menu_close">Close Menu</string>
     <string name="footer_button_ok">OK</string>
     <color name="blue">#25383C</color>
+    
+    <!-- Settings -->
+    <string name="title_activity_settings">Settings</string>
+    <string name="change_language">Change language</string>
+    <string name="font_scaling">Choose font scaling</string>
+    <string name="small">Small</string>
+    <string name="medium">Medium</string>
+    <string name="big">Big</string>
+    <string name="language_picker">Choose language</string>
+    <string name="set_pin">new pin (5 digits)</string>
+    <string name="confirm_pin">confirm new pin</string>
+    <string name="pin_incorrect_size">Pin should be 5 digits long</string>
+    <string name="pin_not_equal">Pincodes were not the same</string>
+	<string name="temperature_perms">Only superusers can change temperatures</string>
+
+    <!-- Login Activity -->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log in</string>
+    <string name="username_description">Your username</string>
+    <string name="password_description">Your password</string>
+    <string name="pin_description">Use pin</string>
+    <string name="login_header">Login</string>
+    <string name="use_pin">Your pin</string>
+    
+    <!-- Login Activity -->
+    <string name="title_activity_scanner">Scanner</string>
+    
+    
 
 </resources>
