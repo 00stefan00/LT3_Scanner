@@ -8,11 +8,6 @@ import nl.circulairtriangles.scanner.security.Login;
 
 import org.json.JSONObject;
 
-/**
- * User: johan
- * Date: 11/12/13
- * Time: 11:46 AM
- */
 public class LoginActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

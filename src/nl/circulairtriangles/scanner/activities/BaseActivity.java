@@ -43,20 +43,20 @@ public abstract class BaseActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-//		isLoggedIn();
+		isLoggedIn();
 		setContentView(R.layout.footer);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-//		isLoggedIn();
+		isLoggedIn();
 	}
 
 	@Override
 	protected void onRestart() {
 		super.onRestart();
-//		isLoggedIn();
+		isLoggedIn();
 	}
 
 	protected void isLoggedIn() {
