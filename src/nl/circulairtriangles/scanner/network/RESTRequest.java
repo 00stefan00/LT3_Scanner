@@ -332,10 +332,8 @@ public class RESTRequest extends AsyncTask<Void, Void, String> {
 		Scanner scanner = null;
 
 		try {
-			Log.i("DEBUG", parameters.toString());
 			// Run request
 			HttpResponse httpResponse = defaultHttpClient.execute(httpRequest);
-			Log.i("DEBUG", "!response: "+httpResponse.toString());
 
 			// Get content of response
 			inputStream = httpResponse.getEntity().getContent();
@@ -350,7 +348,6 @@ public class RESTRequest extends AsyncTask<Void, Void, String> {
 			while (scanner.hasNext()) {
 				result += scanner.next();
 			}
-			Log.i("DEBUG", "res: "+result);
 			
 			if (result.length() > 0) {
 

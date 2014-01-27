@@ -21,16 +21,16 @@ public class LoginActivity extends BaseActivity {
 		EditText password = (EditText) findViewById(R.id.login_password);
 		JSONObject jsonObject = Login.login(this, username.getText().toString(), password.getText().toString());
 				
-		setStuff(jsonObject);
-		startIntentByButton(view);
+		setStuff(jsonObject, view);
+		
 	}
 
-	private void setStuff(JSONObject jsonObject) {
+	private void setStuff(JSONObject jsonObject, View view) {
 		try{
 			jsonObject = processRequest(jsonObject);
 			if(jsonObject != null) {
-				super_user = jsonObject.getBoolean("super_user");
 				login_token = jsonObject.getString("login_token");
+				startIntentByButton(view);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
