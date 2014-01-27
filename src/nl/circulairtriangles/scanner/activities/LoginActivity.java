@@ -1,6 +1,7 @@
 package nl.circulairtriangles.scanner.activities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import nl.circulairtriangles.scanner.R;
@@ -19,13 +20,7 @@ public class LoginActivity extends BaseActivity {
 		EditText username = (EditText) findViewById(R.id.login_username);
 		EditText password = (EditText) findViewById(R.id.login_password);
 		JSONObject jsonObject = Login.login(this, username.getText().toString(), password.getText().toString());
-		setStuff(jsonObject);
-		startIntentByButton(view);
-	}
-
-	public void loginUsingPin(View view) {
-		EditText pin = (EditText) findViewById(R.id.login_pin);
-		JSONObject jsonObject = Login.loginUsingPin(this, pin.getText().toString());
+				
 		setStuff(jsonObject);
 		startIntentByButton(view);
 	}

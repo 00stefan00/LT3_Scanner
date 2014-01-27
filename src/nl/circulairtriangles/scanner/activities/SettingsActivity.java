@@ -105,28 +105,6 @@ public class SettingsActivity extends BaseActivity {
 			changeLanguage(config, languages[currentLanguageChoice]);
 		}
 		updateContent(config);
-		changePin(view);
-	}
-
-	private void changePin(View view) {
-		String pin1 = change_pin1.getText().toString();
-		String pin2 = change_pin2.getText().toString();
-		if (pin1.length() != 0 && pin2.length() != 0) {
-			if (pin1.equals(pin2)) {
-				if (pin1.length() == 5) {
-					Login.createPinEntry(this, Integer.parseInt(pin1),
-							getUsername(), getPassword());
-				} else {
-					Toast.makeText(
-							this,
-							getString(R.string.pin_incorrect_size) + " "
-									+ pin1.length(), Toast.LENGTH_SHORT).show();
-				}
-			} else {
-				Toast.makeText(this, getString(R.string.pin_not_equal),
-						Toast.LENGTH_SHORT).show();
-			}
-		}
 	}
 
 	protected void processToggle(boolean isChecked) {

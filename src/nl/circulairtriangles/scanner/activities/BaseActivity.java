@@ -203,10 +203,10 @@ public abstract class BaseActivity extends Activity {
 
 	protected JSONObject processRequest(JSONObject jsonObject) throws Exception {
 		if(jsonObject == null) {
-			Toast.makeText(getApplicationContext(), R.string.error_something_wrong, Toast.LENGTH_SHORT);
+			Toast.makeText(getApplicationContext(), R.string.error_something_wrong, Toast.LENGTH_SHORT).show();			
 		}
 		else if(jsonObject.get("error").toString().equals("true")) {
-			Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT);
+			Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
 		} else {
 			return jsonObject;
 		}

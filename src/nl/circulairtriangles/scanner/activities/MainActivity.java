@@ -2,7 +2,6 @@ package nl.circulairtriangles.scanner.activities;
 
 import nl.circulairtriangles.scanner.R;
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
 
 public class MainActivity extends BaseActivity {

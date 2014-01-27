@@ -4,16 +4,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created with IntelliJ IDEA.
- * User: johan
- * Date: 10/15/13
- * Time: 2:08 PM
- */
 public class JSONParser {
 
 	private static JSONParser instance;

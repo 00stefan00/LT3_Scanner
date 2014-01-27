@@ -4,7 +4,6 @@ import nl.circulairtriangles.scanner.R;
 import nl.circulairtriangles.scanner.utils.IntentIntegrator;
 import nl.circulairtriangles.scanner.utils.IntentResult;
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
