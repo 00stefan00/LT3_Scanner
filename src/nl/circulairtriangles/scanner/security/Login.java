@@ -1,6 +1,7 @@
 package nl.circulairtriangles.scanner.security;
 
 import android.content.Context;
+import android.util.Log;
 import nl.circulairtriangles.scanner.config.Config;
 import nl.circulairtriangles.scanner.network.RESTRequest;
 import nl.circulairtriangles.scanner.utils.JSONParser;
@@ -25,6 +26,7 @@ public class Login {
 			Login.createCredentialsFile(context, username, password);
 			JSONParser jsonParser = JSONParser.getInstance();
 			String response = restRequest.execute().get();
+			Log.i("DEBUG", response);
 			jsonObject = jsonParser.getObjectFromRequest(response);
 		} catch (Exception e) {
 			e.printStackTrace();

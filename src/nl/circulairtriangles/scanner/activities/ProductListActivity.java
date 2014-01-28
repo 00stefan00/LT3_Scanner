@@ -20,7 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ProductListActivity extends BaseActivity {
-	
+
 	Map<String, LinearLayout> map;
 
 	@Override
@@ -41,35 +41,42 @@ public class ProductListActivity extends BaseActivity {
 		}
 	}
 
-	private void createList(JSONArray json) {
-
+	private void addProduct(String quantity, String product_name) {
 		LinearLayout ver_layout = ((LinearLayout) findViewById(R.id.shopping_list));
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
 				LinearLayout.LayoutParams.MATCH_PARENT,
 				LinearLayout.LayoutParams.WRAP_CONTENT);
 
+		LinearLayout hor_layout = new LinearLayout(this);
+		hor_layout.setOrientation(LinearLayout.HORIZONTAL);
+		hor_layout.setLayoutParams(params);
+
+		TextView tv = new TextView(this);
+		tv.setText(quantity);
+
+		hor_layout.addView(tv);
+
+		tv = new TextView(this);
+		tv.setText(" x  :" + product_name);
+
+		hor_layout.addView(tv);
+
+		map.put(product_name, hor_layout);
+
+		ver_layout.addView(hor_layout, params);
+	}
+
+	private void createList(JSONArray json) {
+
 		for (int i = 0; i < json.length(); i++) {
 			try {
 
 				JSONObject j_obj = json.getJSONObject(i);
-
-				LinearLayout hor_layout = new LinearLayout(this);
-				hor_layout.setOrientation(LinearLayout.HORIZONTAL);
-				hor_layout.setLayoutParams(params);
-
-				TextView tv = new TextView(this);
-				tv.setText(j_obj.getString("quantity"));
-
-				hor_layout.addView(tv);
-
-				tv = new TextView(this);
-				tv.setText(" x  :" + j_obj.getString("product_name"));
-
-				hor_layout.addView(tv);
+				String quantity = j_obj.getString("quantity");
+				String product_name = j_obj.getString("product_name");
 				
-				map.put(j_obj.getString("product_name"), hor_layout);
+				addProduct(quantity, product_name);
 
-				ver_layout.addView(hor_layout, params);
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
@@ -79,16 +86,15 @@ public class ProductListActivity extends BaseActivity {
 	}
 
 	public void Scan(View v) {
-		Intent intent = new Intent(getApplicationContext(),
-				ScanActivity.class);
-				
+		Intent intent = new Intent(getApplicationContext(), ScanActivity.class);
+
 		startActivityForResult(intent, 1);
 	}
-	
+
 	@Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        processScan();
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		processScan();
 	}
 
 	private void processScan() {
@@ -103,12 +109,17 @@ public class ProductListActivity extends BaseActivity {
 			JSONObject json = (JSONObject) parser
 					.getObjectFromRequest(response);
 
-			
-			LinearLayout layout = map.get(json.getString("name"));
-			TextView tv = (TextView) layout.getChildAt(0);
-			String text = ""+(Integer.parseInt(tv.getText().toString())-1);
-			Log.i("DEBUG", text);
-			tv.setText(text);
+			if (map.containsKey(json.getString("name"))) {
+				LinearLayout layout = map.get(json.getString("name"));
+
+				TextView tv = (TextView) layout.getChildAt(0);
+				String text = ""
+						+ (Integer.parseInt(tv.getText().toString()) - 1);
+				Log.i("DEBUG", text);
+				tv.setText(text);
+			} else {
+				addProduct("-1", json.getString("name"));
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
