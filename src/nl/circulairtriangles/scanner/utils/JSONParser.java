@@ -4,8 +4,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -40,6 +38,16 @@ public class JSONParser {
 	 */
 	public JSONObject getObjectFromRequest(String json) throws JSONException {
 		return new JSONObject(json);
+	}
+	
+	/**
+	 * Converts string to JSONArray
+	 * @param jsonarray
+	 * @return
+	 * @throws org.json.JSONException
+	 */
+	public JSONArray getArrayFromRequest(String json) throws JSONException {
+		return new JSONArray(json);
 	}
 
 	/**

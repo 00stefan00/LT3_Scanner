@@ -8,12 +8,6 @@
     android:paddingTop="0dp"
     tools:context=".MainActivity" >
 
-    <include
-        android:id="@+id/mainheader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        layout="@layout/header" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,70 +19,41 @@
         android:paddingTop="0dp"
         tools:context=".MainActivity" >
 
-        <include
-            android:id="@+id/include01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            layout="@layout/header" />
-
-        <Button
-            android:id="@+id/Button01"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/include01"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="64dp"
-            android:background="@drawable/smooth_button"
-            android:drawablePadding="5dip"
-            android:gravity="left|center_vertical|right"
-            android:onClick="startIntentByButton"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:tag="ScanActivity"
-            android:text="@string/title_activity_scanner" />
-
-        <Button
-            android:id="@+id/Button02"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/Button01"
-            android:layout_alignRight="@+id/Button01"
-            android:layout_below="@+id/Button01"
-            android:background="@drawable/smooth_button"
-            android:drawablePadding="5dip"
-            android:gravity="left|center_vertical|right"
-            android:onClick="startIntentByButton"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:tag="ScanActivity"
-            android:text="@string/title_activity_scanner" />
-
-        <Button
-            android:id="@+id/Button03"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/Button02"
-            android:layout_alignRight="@+id/Button02"
-            android:layout_below="@+id/Button02"
-            android:background="@drawable/smooth_button"
-            android:drawablePadding="5dip"
-            android:gravity="left|center_vertical|right"
-            android:onClick="startIntentByButton"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:tag="SettingsActivity"
-            android:text="@string/title_activity_settings" />
-
-        <include
+        <ScrollView
+            android:id="@+id/scrollView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            layout="@layout/footer" />
+            android:layout_alignParentTop="true" >
 
+            <LinearLayout
+                android:id="@+id/listLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <include
+                    android:id="@+id/mainheader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    layout="@layout/header" />
+
+                <Button
+                    android:id="@+id/getProducts"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/getProducts" />
+            </LinearLayout>
+        </ScrollView>
+
+        <include
+            android:id="@+id/include1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/footer" />
     </RelativeLayout>
 
 </RelativeLayout>

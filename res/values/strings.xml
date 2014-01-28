@@ -4,6 +4,10 @@
     <string name="app_name">scanner</string>
     <string name="action_settings">Settings</string>
     <string name="ok">OK</string>
+    <string name="scan_error">Scanning Failed, please try again</string>
+    
+    <!-- Main -->
+    <string name="title_activity_main">Home</string>
     
     <!-- Login Strings -->
     <string name="login_userName_hint">Username</string>
@@ -48,6 +52,8 @@
     
     <!-- Login Activity -->
     <string name="title_activity_scanner">Scanner</string>
+    <string name="getProducts">Get Products</string>
+    <string name="Scan">Scan</string>
     
     
 

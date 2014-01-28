@@ -36,6 +36,9 @@
             android:name=".activities.LoginActivity"/>
         <activity
             android:name=".activities.ScanActivity"/>
+        <activity
+            android:name=".activities.ProductListActivity"/>
+        
     </application>
 
 </manifest>

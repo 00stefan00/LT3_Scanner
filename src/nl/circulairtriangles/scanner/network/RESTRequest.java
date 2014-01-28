@@ -2,7 +2,6 @@ package nl.circulairtriangles.scanner.network;
 
 import android.os.AsyncTask;
 import android.util.Base64;
-import android.util.Log;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;

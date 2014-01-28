@@ -6,7 +6,6 @@ import nl.circulairtriangles.scanner.utils.IntentResult;
 import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.Menu;
 import android.widget.Toast;
 
@@ -27,19 +26,21 @@ public class ScanActivity extends BaseActivity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
-	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-		  IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-		  if (scanResult != null) {
-		    // handle scan result
-			  Log.e("<test>", scanResult.toString());
-			  Context context = getApplicationContext();
-			  CharSequence text = scanResult.getContents();
-			  int duration = Toast.LENGTH_LONG;
 
-			  Toast toast = Toast.makeText(context, text, duration);
-			  toast.show();
-		  }
-		  // else continue with any other code you need in the method
+	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		IntentResult scanResult = IntentIntegrator.parseActivityResult(
+				requestCode, resultCode, intent);
+		Context context = getApplicationContext();
+		int duration = Toast.LENGTH_LONG;
+		if (scanResult != null) {
+
+			CharSequence text = scanResult.getContents();
+
+			scancode = text.toString();
+		} else {
+			Toast.makeText(context, context.getString(R.string.scan_error),
+					duration).show();
 		}
+		this.finish();
+	}
 }

@@ -10,7 +10,6 @@ import android.widget.*;
 import nl.circulairtriangles.scanner.R;
 import nl.circulairtriangles.scanner.config.Config;
 import nl.circulairtriangles.scanner.network.RESTRequest;
-import nl.circulairtriangles.scanner.security.Login;
 import nl.circulairtriangles.scanner.utils.JSONParser;
 
 import org.json.JSONObject;

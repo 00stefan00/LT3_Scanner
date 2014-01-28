@@ -22,7 +22,6 @@ import org.json.JSONObject;
 
 import java.io.*;
 
-
 public abstract class BaseActivity extends Activity {
 
 	protected TextView txtHeading;
@@ -39,6 +38,8 @@ public abstract class BaseActivity extends Activity {
 
 	protected static String login_token = "";
 	protected static Boolean super_user;
+
+	protected static String scancode = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +61,9 @@ public abstract class BaseActivity extends Activity {
 	}
 
 	protected void isLoggedIn() {
-		if(login_token.equals("") && !(this instanceof LoginActivity)) {
-			Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+		if (login_token.equals("") && !(this instanceof LoginActivity)) {
+			Intent intent = new Intent(getApplicationContext(),
+					LoginActivity.class);
 			startActivity(intent);
 		}
 	}
@@ -202,11 +204,12 @@ public abstract class BaseActivity extends Activity {
 	}
 
 	protected JSONObject processRequest(JSONObject jsonObject) throws Exception {
-		if(jsonObject == null) {
-			Toast.makeText(getApplicationContext(), R.string.error_something_wrong, Toast.LENGTH_SHORT).show();			
-		}
-		else if(jsonObject.get("error").toString().equals("true")) {
-			Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+		if (jsonObject == null) {
+			Toast.makeText(getApplicationContext(),
+					R.string.error_something_wrong, Toast.LENGTH_SHORT).show();
+		} else if (jsonObject.get("error").toString().equals("true")) {
+			Toast.makeText(getApplicationContext(),
+					jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
 		} else {
 			return jsonObject;
 		}
@@ -238,9 +241,10 @@ public abstract class BaseActivity extends Activity {
 	protected String getFileContent() throws Exception {
 		File file = new File(getFilesDir(), Config.LOGIN_CREDENTIAL_FILE);
 		String content = "";
-		if(file.exists()) {
+		if (file.exists()) {
 			InputStream inputStream = new FileInputStream(file);
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+			BufferedReader bufferedReader = new BufferedReader(
+					new InputStreamReader(inputStream));
 			String receiveString;
 			StringBuilder stringBuilder = new StringBuilder();
 			while ((receiveString = bufferedReader.readLine()) != null) {
@@ -251,5 +255,11 @@ public abstract class BaseActivity extends Activity {
 			inputStream.close();
 		}
 		return content;
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+
 	}
 }
