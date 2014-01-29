@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,11 +17,17 @@ import nl.circulairtriangles.scanner.R;
 import nl.circulairtriangles.scanner.animations.CollapseAnimation;
 import nl.circulairtriangles.scanner.animations.ExpandAnimation;
 import nl.circulairtriangles.scanner.config.Config;
+import nl.circulairtriangles.scanner.network.RESTRequest;
 import nl.circulairtriangles.scanner.security.Cryptor;
+import nl.circulairtriangles.scanner.utils.JSONParser;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public abstract class BaseActivity extends Activity {
 
@@ -40,6 +47,7 @@ public abstract class BaseActivity extends Activity {
 	protected static Boolean super_user;
 
 	protected static String scancode = "";
+	Map<String, Integer> inventory;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -158,7 +166,7 @@ public abstract class BaseActivity extends Activity {
 			buttonMenu.setCompoundDrawablesWithIntrinsicBounds(null, null,
 					arrowUp, null);
 			MenuList.startAnimation(new CollapseAnimation(MenuList, 0,
-					(int) (screenHeight * 0.20), 10));
+					(int) (screenHeight * 0.10), 10));
 		} else {
 			buttonMenu.setText(getResources().getString(
 					R.string.footer_button_menu_close));
@@ -166,9 +174,31 @@ public abstract class BaseActivity extends Activity {
 			buttonMenu.setCompoundDrawablesWithIntrinsicBounds(null, null,
 					arrowDown, null);
 			MenuList.startAnimation(new ExpandAnimation(MenuList, 0,
-					(int) (screenHeight * 0.20), 10));
+					(int) (screenHeight * 0.10), 10));
 		}
 
+	}
+	
+	
+	public void pay(View view){
+		
+		String jsonString = inventory.toString().replace(" ", "").replace("}", "").replace("{", "");
+		
+
+		RESTRequest restRequest = new RESTRequest(Config.API_URL);
+		restRequest.putString(Config.KEY_NAME, Config.USER_NAME);
+		restRequest.putString(Config.KEY_METHOD, "paythebills");
+		restRequest.putString("login_token", login_token);
+		restRequest.putString("inventory", jsonString);
+		try {
+			String response = restRequest.execute().get();
+			Log.i("DEBUG", response.toString());
+			JSONParser parser = JSONParser.getInstance();	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		Toast.makeText(this, R.string.payment_complete, Toast.LENGTH_LONG).show();
 	}
 
 	/**

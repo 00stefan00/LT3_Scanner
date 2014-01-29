@@ -13,11 +13,11 @@ import nl.circulairtriangles.scanner.network.RESTRequest;
 import nl.circulairtriangles.scanner.utils.JSONParser;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ProductListActivity extends BaseActivity {
 
@@ -30,6 +30,7 @@ public class ProductListActivity extends BaseActivity {
 		initLayout(R.string.title_activity_main, true, false, true, false);
 
 		map = new HashMap<String, LinearLayout>();
+		inventory = new HashMap<String, Integer>();
 		Bundle b = getIntent().getExtras();
 		String jsonstring = b.getString("jsonstring");
 		JSONParser parser = JSONParser.getInstance();
@@ -52,12 +53,13 @@ public class ProductListActivity extends BaseActivity {
 		hor_layout.setLayoutParams(params);
 
 		TextView tv = new TextView(this);
-		tv.setText(quantity);
+		tv.setText(quantity + " x  :" + product_name + "   "
+				+ getString(R.string.scanned) + ": ");
 
 		hor_layout.addView(tv);
 
 		tv = new TextView(this);
-		tv.setText(" x  :" + product_name);
+		tv.setText("0");
 
 		hor_layout.addView(tv);
 
@@ -74,7 +76,7 @@ public class ProductListActivity extends BaseActivity {
 				JSONObject j_obj = json.getJSONObject(i);
 				String quantity = j_obj.getString("quantity");
 				String product_name = j_obj.getString("product_name");
-				
+
 				addProduct(quantity, product_name);
 
 			} catch (JSONException e) {
@@ -109,18 +111,24 @@ public class ProductListActivity extends BaseActivity {
 			JSONObject json = (JSONObject) parser
 					.getObjectFromRequest(response);
 
-			if (map.containsKey(json.getString("name"))) {
-				LinearLayout layout = map.get(json.getString("name"));
-
-				TextView tv = (TextView) layout.getChildAt(0);
-				String text = ""
-						+ (Integer.parseInt(tv.getText().toString()) - 1);
-				Log.i("DEBUG", text);
-				tv.setText(text);
-			} else {
-				addProduct("-1", json.getString("name"));
+			if (!(map.containsKey(json.getString("name")))) {
+				addProduct("0", json.getString("name"));
 			}
+			LinearLayout layout = map.get(json.getString("name"));
 
+			TextView tv = (TextView) layout.getChildAt(1);
+			String text = "" + (Integer.parseInt(tv.getText().toString()) + 1);
+			tv.setText(text);
+			
+			if(inventory.containsKey(scancode)){
+				inventory.put(scancode, (inventory.get(scancode)+1));
+			}
+			else{
+				inventory.put(scancode, 1);
+			}
+		} catch (JSONException e) {
+			Toast.makeText(this, R.string.product_not_found, Toast.LENGTH_LONG)
+					.show();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

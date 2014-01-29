@@ -17,11 +17,13 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 
 @SuppressLint("UseSparseArrays")
 public class MainActivity extends BaseActivity {
 	
+	Boolean download = false;
 	Map<String, JSONArray> map;
 
 	@Override
@@ -43,6 +45,7 @@ public class MainActivity extends BaseActivity {
 	}
 
 	public void getProductLists(View v) {
+		if(!download){
 		RESTRequest restRequest = new RESTRequest(Config.API_URL);
 		restRequest.putString(Config.KEY_NAME, Config.USER_NAME);
 		restRequest.putString(Config.KEY_METHOD, "getShoppingLists");
@@ -61,6 +64,9 @@ public class MainActivity extends BaseActivity {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		}}
+		else{
+			Toast.makeText(this, getString(R.string.already_downloaded), Toast.LENGTH_LONG).show();
 		}
 
 	}
@@ -72,13 +78,14 @@ public class MainActivity extends BaseActivity {
 	            LinearLayout.LayoutParams.WRAP_CONTENT);
 		Button btn = new Button(this);
 		btn.setId(i);
+		btn.setBackgroundResource(R.drawable.smooth_button);
 		try {
 			btn.setText(list.getJSONObject(0).getString("list_name"));
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		layout.addView(btn, params);
-		
+	
 		map.put(btn.getText().toString(), list);
 		
 		btn.setOnClickListener(new View.OnClickListener() {
